@@ -48,7 +48,7 @@ BEGIN {ReadNumber}
         END
     END
 END; {ReadNumber}
-BEGIN
+BEGIN {Stat}
   Sum := 0;
   Counter := 0;
   Min := 32767;
@@ -72,12 +72,12 @@ BEGIN
         END
       ELSE
         BEGIN
-          WRITELN('Ошибка! Переполнение суммы чисел!');
+          WRITELN('Error! Overflow of the sum of numbers!');
           Num := -3
         END
     END;
-  WRITELN('Количество: ', Counter);
-  WRITELN('Минимальное: ', Min);
-  WRITELN('Максимальное: ', Max);
-  WRITELN('Среднее арифметическое: ', ((Sum * 100) div Counter) div 100, '.', ((Sum * 100) div Counter) mod 100)
-END.
+  WRITELN('Count: ', Counter);
+  WRITELN('Min: ', Min);
+  WRITELN('Max: ', Max);
+  WRITELN('Average: ', ((Sum * 100) div Counter) div 100, '.', ((Sum * 100) div Counter) mod 100)
+END. {Stat}
