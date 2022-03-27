@@ -26,16 +26,14 @@ VAR
 BEGIN {ReadNumber}
   Result := 0;
   Digit := -1;
-  WHILE (Digit < 0) AND (NOT EOLN(F))
-  DO
-    ReadDigit(F, Digit);
-  IF (Digit < 0) AND EOLN(F)
+  ReadDigit(F, Digit);
+  IF Digit < 0  
   THEN
     Result := -1;  
   WHILE Digit >= 0 
   DO
     BEGIN
-      IF ((Result * 10 + Digit) <= MAXINT)
+      IF Result <= ((MAXINT - Digit) div 10)
       THEN
         BEGIN
           Result := Result * 10 + Digit;
